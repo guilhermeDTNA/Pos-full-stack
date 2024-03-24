@@ -1,43 +1,39 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "firstName": "Jack",
-            "email": "jack@email.com",
-            "phone": "38988888842",
-            "password": "123456"
-        },
-    
-        {
-            "id": 2,
-            "firstName": "Mary",
-            "email": "mary@email.com",
-            "phone": "38988555542",
-            "password": "123456"
-        },
-    
-        {
-            "id": 3,
-            "firstName": "Peter",
-            "email": "peter@email.com",
-            "phone": "38988666642",
-            "password": "123456"
-        },
-    
-        {
-            "id": 4,
-            "firstName": "Jason",
-            "email": "jason@email.com",
-            "phone": "38988877742",
-            "password": "123456"
-        },
-    
-        {
-            "id": 5,
-            "firstName": "Hillary",
-            "email": "hillary@email.com",
-            "phone": "389888899942",
-            "password": "123456"
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Jack",
+      "email": "jack@email.com",
+      "phone": "38988888842",
+      "password": "123456"
+    },
+    {
+      "id": "2",
+      "firstName": "Mary",
+      "email": "mary@email.com",
+      "phone": "38988555542",
+      "password": "123456"
+    },
+    {
+      "id": "3",
+      "firstName": "Peter",
+      "email": "peter@email.com",
+      "phone": "38988666642",
+      "password": "123456"
+    },
+    {
+      "id": "4",
+      "firstName": "Jason",
+      "email": "jason@email.com",
+      "phone": "38988877742",
+      "password": "123456"
+    },
+    {
+      "id": "5",
+      "firstName": "Hillary",
+      "email": "hillary@email.com",
+      "phone": "389888899942",
+      "password": "123456"
+    }
+  ]
 }
