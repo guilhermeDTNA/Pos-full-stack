@@ -24,18 +24,17 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class CadastroComponent {
   private fb = inject(FormBuilder);
+
   addressForm = this.fb.group({
-    id: '',
-    firstName: [null, Validators.required],
+    firstName: [null, Validators.compose([
+      Validators.required, Validators.minLength(2), Validators.maxLength(35)])
+    ],
     email: [null, Validators.required],
     phone: [null, Validators.required],
     password: [null, Validators.required],
   });
 
-  hasUnitNumber = false;
-
-  
   onSubmit(): void {
-    alert('Thanks!');
+    alert('Entrou no onSubmit');
   }
 }
