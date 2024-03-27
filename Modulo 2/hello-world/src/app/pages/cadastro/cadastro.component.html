@@ -25,7 +25,23 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Telefone" formControlName="phone" />
+            <input matInput placeholder="Cpf" formControlName="cpf" mask="000.000.000-00" />
+            
+            <mat-error *ngIf="addressForm.controls['cpf'].hasError('required')">
+              CPF é <strong>obrigatório</strong>
+            </mat-error>
+
+            <mat-error *ngIf="addressForm.controls['cpf'].getError('cpfNotValid')">
+              CPF digitado não é <strong>válido</strong>
+            </mat-error>
+
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Telefone" formControlName="phone" mask="(00) 0000-0000" />
             @if (addressForm.controls['phone'].hasError('required')) {
               <mat-error>Telefone é <strong>obrigatório</strong></mat-error>
             }
