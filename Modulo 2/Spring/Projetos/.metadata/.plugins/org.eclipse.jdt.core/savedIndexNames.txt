@@ -6,10 +6,10 @@ INDEX VERSION 1.134+/home/guilherme/Documentos/GitHub/Estudo/Pos-full-stack/Modu
 553963109.index
 2594098179.index
 1118124765.index
-2556733481.index
-550827099.index
-1861106399.index
 4000376392.index
+2556733481.index
+1861106399.index
+550827099.index
 3894405861.index
 2157835950.index
 3975657117.index
