@@ -32,10 +32,10 @@ const updateUserById = async (id, userModel) => {
         if(result[0] === 1){
             return { message: "User updated with success" } 
         } else{
-            return {message: "Couldn't find ${id} to update", status: 404}
+            return {message: `Couldn't find ${id} to update`, status: 404}
         }
     } catch(error){
-        console.log(error);
+        return error;
     }
 }
 

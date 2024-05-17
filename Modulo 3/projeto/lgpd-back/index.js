@@ -1,10 +1,11 @@
-import express  from 'express';
+import express from "express";
 import pkg from 'body-parser';
-import cors from "cors";
-import router from './routes/router.js';
+import router from "./routes/router.js";
 
-import sequelize from './utils/database.js';
-import association from './models/Associations.js';
+import sequelize from "./utils/database.js";
+import association from "./models/Associations.js";
+
+import cors from "cors";
 
 const app = express();
 const { json, urlencoded } = pkg;
@@ -12,6 +13,7 @@ const { json, urlencoded } = pkg;
 app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(cors());
+
 
 (async () => {
     try{
@@ -23,8 +25,6 @@ app.use(cors());
     } catch(error){
         console.log(error);
     }
-});
+})();
 
 app.use("/", router);
-
-// CONTINUAR DO MOMENTO 10:10

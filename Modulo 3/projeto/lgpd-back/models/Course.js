@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../utils/database.js';
 
-const Course = sequelize.define('courses', {
+const Course = sequelize.define('course', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,

@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 
-const sequelize = new Sequelize(
-    'lgpd-database',
+const sequelize = new Sequelize (
+    'lgpd',
     'postgres',
     'postgres',
     {
