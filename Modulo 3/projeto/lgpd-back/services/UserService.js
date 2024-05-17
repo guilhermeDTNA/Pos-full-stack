@@ -1,4 +1,4 @@
-import userRepository from '../repositories/UserRepository.js;'
+import userRepository from '../repositories/UserRepository.js'
 
 const saveUser = (userModel) => {
     return userRepository.saveUser(userModel);

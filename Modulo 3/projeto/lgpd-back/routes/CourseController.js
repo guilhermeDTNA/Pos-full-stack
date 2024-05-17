@@ -1,7 +1,7 @@
 import express from 'express';
 let router = express.Router();
 
-import courseService from '../services/CourseService';
+import courseService from '../services/CourseService.js';
 
 router.post("/addCourse", async function(req, res){
     const courseModel = {

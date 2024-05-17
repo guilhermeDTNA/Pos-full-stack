@@ -1,10 +1,10 @@
 import express from 'express';
 let router = express.Router();
 
-import userController from './UserController';
-import courseController from './CourseController';
-import teacherController from './TeacherController';
-import evaluationController from './EvaluationController';
+import userController from './UserController.js';
+import courseController from './CourseController.js';
+import teacherController from './TeacherController.js';
+import evaluationController from './EvaluationController.js';
 
 router.get("/", function(req, res){
     console.log("Oi!");

@@ -1,7 +1,7 @@
 import express from 'express';
 let router = express.Router();
 
-import teacherService from '../services/TeacherService';
+import teacherService from '../services/TeacherService.js';
 
 router.post("/addTeacher", async function(req, res){
     const teacherModel = {

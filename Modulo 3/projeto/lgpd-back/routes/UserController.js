@@ -1,7 +1,7 @@
 import express from 'express';
 let router = express.Router();
 
-import userService from '../services/userService';
+import userService from '../services/UserService.js';
 
 router.post("/addUser", async function(req, res){
     const userModel = {

@@ -1,4 +1,4 @@
-import evaluationRepository from '../repositories/EvaluationRepository.js;'
+import evaluationRepository from '../repositories/EvaluationRepository.js';
 
 const saveEvaluation = (evaluationModel) => {
     return evaluationRepository.saveEvaluation(evaluationModel);

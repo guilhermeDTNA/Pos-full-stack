@@ -1,4 +1,4 @@
-import courseRepository from '../repositories/CourseRepository.js;'
+import courseRepository from '../repositories/CourseRepository.js';
 
 const saveCourse = (courseModel) => {
     return courseRepository.saveCourse(courseModel);
