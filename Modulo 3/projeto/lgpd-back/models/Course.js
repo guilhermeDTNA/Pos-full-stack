@@ -12,6 +12,6 @@ const Course = sequelize.define('courses', {
         type: DataTypes.STRING,
         allowNull: false
     }
-});
+}, { underscored: true });
 
 export default Course;
