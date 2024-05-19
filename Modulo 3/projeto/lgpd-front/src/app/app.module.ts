@@ -12,11 +12,7 @@ import { EvaluationFormComponent } from './pages/evaluation/evaluation-form/eval
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CourseListComponent,
-    CourseFormComponent,
-    EvaluationListComponent,
-    EvaluationFormComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

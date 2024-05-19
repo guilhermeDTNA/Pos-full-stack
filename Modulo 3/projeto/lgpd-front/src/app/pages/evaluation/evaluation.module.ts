@@ -8,6 +8,8 @@ import { EvaluationFormComponent } from './evaluation-form/evaluation-form.compo
 
 @NgModule({
   declarations: [
+    EvaluationListComponent,
+    EvaluationFormComponent
   ],
   imports: [
     CommonModule,

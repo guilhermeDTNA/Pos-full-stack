@@ -8,6 +8,8 @@ import { CourseListComponent } from './course-list/course-list.component';
 
 @NgModule({
   declarations: [
+    CourseListComponent,
+    CourseFormComponent
   ],
   imports: [
     CommonModule,
