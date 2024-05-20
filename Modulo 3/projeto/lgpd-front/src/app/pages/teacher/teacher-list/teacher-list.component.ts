@@ -27,8 +27,28 @@ export class TeacherListComponent implements OnInit { // implements OnInit e imp
   ) { }
 
   async ngOnInit(): Promise<void> {
-    // adicionar conversores
-    this.courseLabel = await this.sharedService.convertCourseToOption();
+    await this.listTeachers();
+    this.sharedService.getCourses().subscribe(course => this.courseLabel = course);
+  }
+
+  async listTeachers(): Promise<void> {
+    this.teachers = await this.teacherService.get<any[]>({
+      url: "http://localhost:3000/getAllTeachers",
+      params: {
+
+      }
+    });
+  }
+
+  async delete(id: number): Promise<void>{
+    if(confirm("Deseja deletar esse professor?")){
+      await this.teacherService.delete<any>({
+        url: `http://localhost:3000/deleteTeacher/${id}`,
+        params: {}
+      })
+
+      await this.listTeachers();
+    }
   }
   
   getLabelCourse(value: String): String | undefined {
