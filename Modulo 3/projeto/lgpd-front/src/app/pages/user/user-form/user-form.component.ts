@@ -149,5 +149,3 @@ export class UserFormComponent {
     await this.router.navigate(['/users']);
   }
 }
-
-// A partir do minuto 16:00
