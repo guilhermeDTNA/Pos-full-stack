@@ -4,8 +4,11 @@ let router = express.Router();
 import evaluationService from '../services/EvaluationService.js';
 
 router.post("/addEvaluation", async function(req, res){
+    console.log(req.body);
     const evaluationModel = {
-        concept: req.body.concept
+        concept: req.body.concept,
+        user_id: req.body.user_id,
+        course_id: req.body.course_id
     }
 
     const evaluation = await evaluationService.saveEvaluation(evaluationModel);
@@ -29,7 +32,9 @@ router.delete("/deleteEvaluation/:id", async function(req, res){
 
 router.put("/updateEvaluation/:id", async function(req, res){
     const evaluationModel = {
-        concept: req.body.concept
+        concept: req.body.concept,
+        user_id: req.body.user_id,
+        course_id: req.body.course_id
     }
     
     const evaluation = await evaluationService.updateEvaluationById(req.params.id, evaluationModel);

@@ -1,4 +1,4 @@
-import teacherRepository from '../repositories/TeacherRepository.js';
+import teacherRepository from "../repositories/TeacherRepository.js";
 
 const saveTeacher = (teacherModel) => {
     return teacherRepository.saveTeacher(teacherModel);
@@ -27,5 +27,6 @@ const service = {
     deleteTeacherById,
     updateTeacherById
 }
+
 
 export default service;

@@ -1,4 +1,4 @@
-import { DataTypes } from 'sequelize';
+import DataTypes from 'sequelize';
 import sequelize from '../utils/database.js';
 
 const Teacher = sequelize.define('teacher', {
@@ -10,8 +10,11 @@ const Teacher = sequelize.define('teacher', {
     },
     name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+    },
+    course_id: {
+        type: DataTypes.INTEGER
     }
-}, { underscored: true });
+},{ underscored : true });
 
 export default Teacher;

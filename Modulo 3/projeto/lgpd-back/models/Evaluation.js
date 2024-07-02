@@ -11,6 +11,12 @@ const Evaluation = sequelize.define('evaluation', {
     concept: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    course_id: {
+        type: DataTypes.INTEGER
+    },
+    user_id: {
+        type: DataTypes.INTEGER
     }
 }, { underscored: true });
 

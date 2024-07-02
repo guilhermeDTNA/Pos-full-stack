@@ -90,7 +90,7 @@ export class UserFormComponent {
           }
         });
         this.model = this.user;
-        this.getImage('http://localhost:3000/userImage/' + this.model.id).subscribe(x => this.url = x);
+        this.getImage('http://localhost:3000/userImage/' + this.model.id).subscribe(x => this.url = x)
       } else {
         this.model = {}
       }
@@ -98,6 +98,7 @@ export class UserFormComponent {
   }
 
   public getImage(url: string): Observable<SafeResourceUrl> {
+    console.log(url)
     return this.http.get(url, { responseType: 'blob' }).pipe(
       map(
         x => {

@@ -67,8 +67,13 @@ router.put("/updateUser/:id", async function(req, res){
         
         const user = await userService.updateUserById(req.params.id, userModel);
         return res.status(200).json(user);
-    })
+    });
     
-})
+});
+
+router.get('/userImage/:id', async function(req, res){
+    const user = await userService.getUserById(req.params.id);
+    res.sendFile(process.cwd() + "/" + user.profile_picture);
+});
 
 export default router;
