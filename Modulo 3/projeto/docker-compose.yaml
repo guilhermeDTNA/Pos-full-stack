@@ -19,7 +19,7 @@ services:
       - DB_PORT=5432
       - DB_USER=postgres
       - DB_PASS=postgres
-      - DB_NAME=lgpd
+      - DB_NAME=postgres
     depends_on:
       - postgres
     command: sh -c "npm install && node index.js"
