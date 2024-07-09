@@ -1,0 +1,29 @@
+form:has(.profile-icon[src=""]) .profile-icon{
+    display: none !important;
+}
+
+form:not(:has(.profile-icon[src=""])) .profile-icon-placeholder{
+    display: none;
+}
+
+.profile-image-upload{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+
+    .profile-icon-placeholder{
+        cursor: pointer;
+    }
+
+    figure{
+        margin: 0;
+
+        .profile-icon{
+            width: 200px;
+            height: auto;
+        }
+    }
+}

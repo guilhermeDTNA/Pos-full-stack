@@ -26,6 +26,7 @@
     "@ngx-formly/core": "^6.0.4",
     "axios": "^1.2.2",
     "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.11.3",
     "fullscreen": "^1.1.1",
     "http": "^0.0.1-security",
     "jquery": "^3.6.3",

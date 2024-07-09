@@ -21,6 +21,7 @@ export class UserFormComponent {
   fileInput: File | null = null;
   fileSelected?: Blob;
   url: SafeResourceUrl | undefined;
+  hasUrl: boolean = false;
 
   user: any = {};
   model: any = {};
@@ -98,7 +99,6 @@ export class UserFormComponent {
   }
 
   public getImage(url: string): Observable<SafeResourceUrl> {
-    console.log(url)
     return this.http.get(url, { responseType: 'blob' }).pipe(
       map(
         x => {
@@ -114,7 +114,8 @@ export class UserFormComponent {
     const target = event.target as HTMLInputElement
     this.fileSelected = (target.files as FileList)[0];
     this.url = this.domSanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(this.fileSelected)) as string;
-
+    if(this.fileSelected)
+      this.hasUrl = true;
     // atenção no método bypassSecurityTrustHtml estamos usando URL
   }
 

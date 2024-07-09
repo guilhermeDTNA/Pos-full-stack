@@ -12,12 +12,23 @@
 
       <form [formGroup]="form">
         <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
-        <!-- adicionar o options no HTML  [options]="options" -->
-        <img [src]="url" alt="Image Preview" width="200px" height="200px"
-          class="row d-flex align-content-center justify-content-center">
-        <input type="file" style="display: none;" name="file" accept="image/*" [multiple]="false"
-          (change)="onSelectNewFile($event)" #fileInput>
-        <input type="button" class="btn btn-primary" value="Choose file" (click)="fileInput.click()" />
+        
+        <div class="profile-image-upload">
+          <figure class="profile-icon-placeholder" (click)="fileInput.click()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-bounding-box" viewBox="0 0 16 16">
+              <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5M.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5"/>
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            </svg>
+          </figure>
+          
+          <figure>
+            <img [src]="url" alt="Image Preview"
+            class="row d-flex align-content-center justify-content-center profile-icon">
+          </figure>
+          <input type="file" style="display: none;" name="file" accept="image/*" [multiple]="false"
+            (change)="onSelectNewFile($event)" #fileInput>
+          <input type="button" class="btn btn-primary" value="Enviar foto" (click)="fileInput.click()" />
+        </div>
       </form>
 
       <div class="col-12 d-flex align-content-center justify-content-center pt-5">
