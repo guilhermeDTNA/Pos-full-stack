@@ -8,8 +8,16 @@ import { EvaluationListComponent } from './pages/evaluation/evaluation-list/eval
 import { EvaluationFormComponent } from './pages/evaluation/evaluation-form/evaluation-form.component';
 import { CourseListComponent } from './pages/course/course-list/course-list.component';
 import { CourseFormComponent } from './pages/course/course-form/course-form.component';
+import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent,
+    canDeactivate: [AuthGuard]
+  },
+
   {
     path: '',
     //Remover linha abaixo para ajustar o routing de todas as páginas
@@ -21,7 +29,8 @@ const routes: Routes = [
       },
       {
         path: 'addUser',
-        component: UserFormComponent
+        component: UserFormComponent,
+        canActivate: [AuthGuard]
       },
       //Adicionar esses valores
       {
@@ -31,7 +40,8 @@ const routes: Routes = [
       },
       {
         path: 'addTeacher',
-        component: TeacherFormComponent
+        component: TeacherFormComponent,
+        canActivate: [AuthGuard]
       },
       //Adicionar depois da aula
       {
@@ -41,7 +51,8 @@ const routes: Routes = [
       },
       {
         path: 'addEvaluation',
-        component: EvaluationFormComponent
+        component: EvaluationFormComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'courses',
@@ -50,7 +61,8 @@ const routes: Routes = [
       },
       {
         path: 'addCourse',
-        component: CourseFormComponent
+        component: CourseFormComponent,
+        canActivate: [AuthGuard]
       }
     ]
   }

@@ -35,6 +35,9 @@
               Avaliações
             </a>
           </li>
+          <li *ngIf="isLoggedIn">
+            <a class="nav-link active" (click)="logout()" href="#">Sair</a>
+          </li>
         </ul>
       </div>
     </nav>
