@@ -16,6 +16,36 @@
         [fields]="fields">
       </formly-form>
 
+      <section>
+        <h4 class="text-center">Alunos disponíveis:</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users" (click)="userSelect($event)" id="user-{{user.id}}">
+              <td>{{user.first_name}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4 class="text-center">Cursos disponíveis:</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let course of courses" (click)="courseSelect($event)" id="course-{{course.id}}">
+              <td>{{course.name}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
       <div class="col-12 d-flex align-content-center justify-content-center pt-5">
         <button class="btn btn-primary" type="submit"  >
           Salvar

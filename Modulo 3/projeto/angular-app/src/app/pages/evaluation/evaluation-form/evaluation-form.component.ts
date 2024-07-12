@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 //add esses imports
 import { FormGroup } from '@angular/forms';
@@ -6,18 +6,22 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { SharedService } from 'src/app/shared/shared.service';
 import { EvaluationService } from '../evaluation.service';
+import { CourseService } from '../../course/course.service';
+import { UserService } from '../../user/user.service';
 @Component({
   selector: 'app-evaluation-form',
   templateUrl: './evaluation-form.component.html',
   styleUrls: ['./evaluation-form.component.scss']
 })
 
-export class EvaluationFormComponent {
+export class EvaluationFormComponent implements OnInit {
   // implementar essa classe toda aqui
   evaluation: any = {};
 
   form = new FormGroup({});
   model: any = {};
+  courses: any[] = [];
+  users: any[] = [];
   //Cria os campos e atribui os valores para serem gerados pelo angular
 
   fields: FormlyFieldConfig[] = [
@@ -26,22 +30,6 @@ export class EvaluationFormComponent {
       fieldGroupClassName: 'row',
       fieldGroup: [
         //Depois com a integração com o backend vamos buscar os nomes dos cursos e usuarios disponíveis para transformar isso num campo de eescolha
-        {
-          key: 'user_id',
-          type: 'input',
-          props: {
-            label: 'Id do Usuario',
-            required: true,
-          },
-        },
-        {
-          key: 'course_id',
-          type: 'input',
-          props: {
-            label: 'Id do Curso',
-            required: true,
-          },
-        },
         {
           key: 'concept',
           type: 'input',
@@ -59,7 +47,8 @@ export class EvaluationFormComponent {
     private route: ActivatedRoute,
     private router: Router,
     private evaluationService: EvaluationService,
-    private sharedService: SharedService
+    private courseService: CourseService,
+    private userService: UserService
   ) {
 
 
@@ -103,5 +92,38 @@ export class EvaluationFormComponent {
 
     }
     await this.router.navigate(['/evaluations']);
+  }
+
+  async ngOnInit(): Promise<void> {
+    await this.listCourses();
+    await this.listUsers();
+  }
+
+  async listCourses(): Promise<void> {
+    this.courses = await this.courseService.get<any[]>({
+      url: "http://localhost:3000/getAllCourses",
+      params: {
+
+      }
+    });
+  }
+
+  async listUsers(): Promise<void> {
+    this.users = await this.userService.get<any[]>({
+      url: "http://localhost:3000/getAllUsers",
+      params: {
+
+      }
+    });
+  }
+
+  userSelect(e: any): void{
+    this.model.user_id = e.target.closest('tr').id.replace("user-", "");
+    console.log(this.model.user_id)
+  }
+
+  courseSelect(e: any): void{
+    this.model.course_id = e.target.closest('tr').id.replace("course-", "");
+    console.log(this.model.course_id)
   }
 }
