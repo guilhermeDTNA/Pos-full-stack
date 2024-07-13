@@ -101,6 +101,12 @@ export class TeacherFormComponent implements OnInit {
   }
 
   courseSelect(e: any): void{
+    const table = e.target.closest('table');
+    table.querySelectorAll('tbody tr').forEach((item: HTMLElement) => {
+      item.classList.remove("active");
+    });
+
+    e.target.closest('tr').classList.add("active");
     this.model.course_id = e.target.closest('tr').id.replace("course-", "");
   }
 }

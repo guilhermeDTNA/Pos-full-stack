@@ -1,0 +1,27 @@
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <div class="position-sticky pt-3">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/users">
+            <span data-feather="home"></span>
+            Alunos
+          </a>
+          <a class="nav-link" aria-current="page" href="/teachers">
+            <span data-feather="home"></span>
+            Professores
+          </a>
+          <a class="nav-link" aria-current="page" href="/courses">
+            <span data-feather="home"></span>
+            Cursos
+          </a>
+          <a class="nav-link" aria-current="page" href="/evaluations">
+            <span data-feather="home"></span>
+            Avaliações
+          </a>
+        </li>
+        <li *ngIf="isLoggedIn">
+          <a class="nav-link" id="logout" (click)="logout()" href="#" title="Sair do sistema">Sair</a>
+        </li>
+      </ul>
+    </div>
+  </nav>

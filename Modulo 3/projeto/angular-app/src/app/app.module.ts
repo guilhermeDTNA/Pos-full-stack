@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { SharedModule } from "./shared/shared.module";
 import { LoginComponent } from './pages/login/login.component';
 import { ButtonLogoutComponent } from './components/button-logout/button-logout.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ButtonLogoutComponent
+    ButtonLogoutComponent,
+    SidebarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

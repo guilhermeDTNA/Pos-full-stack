@@ -1,0 +1,53 @@
+form fieldset{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    formly-form{
+        width: 50%;
+
+        formly-group{
+            width: 100%;
+            max-width: 400px;
+        }
+    }
+
+    table{
+        width: 50%;
+        border: none;
+
+        *{
+            border: none;
+            box-shadow: unset;
+        }
+
+        tbody{
+            display: flex;
+            flex-direction: column;
+
+            tr{
+                margin: 5px 0;
+    
+                &.active td{
+                    background: #00000033;
+                    color: #2470dc;
+                }
+    
+                td{
+                    cursor: pointer;
+                    color: var(--bs-btn-hover-bg);
+                    border-radius: 9px;
+                    width: 100%;
+                    display: block;
+                    max-width: 400px;
+                    text-transform: capitalize;
+    
+                    &:hover {
+                        background: #00000033;
+                    }
+                }
+                
+            }
+        } 
+    }
+}
