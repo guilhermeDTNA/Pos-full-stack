@@ -1,15 +1,15 @@
 <div class="container">
   <div class="py-3 text-center">
-    <h3>Cadastro de Usuários</h3>
+    <h3>Cadastro de Alunos</h3>
   </div>
   <div class="row">
     <div class="col-12 d-flex align-content-end justify-content-end pb-5">
-      <a class="btn btn-primary" [href]="'/addUser'">CADASTRAR USUÁRIO</a>
+      <a class="btn btn-primary" [href]="'/addUser'">CADASTRAR ALUNO</a>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12 mb-12">
-      <table class="table" caption="user_table">
+      <table class="table list">
         <thead>
         <tr>
           <th scope="col">Código</th>
@@ -27,7 +27,7 @@
           <td>{{user.last_name}}</td>
           <td>{{user.email}}</td>
           <td>{{getLabelGender(user.gender)}}</td>
-          <td>
+          <td class="register-acions">
             <a class="btn btn-outline-primary" [href]="'/addUser?id='+user.id">
               <fa-icon [icon]="faPencil"></fa-icon>
             </a>

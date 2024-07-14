@@ -62,11 +62,102 @@ body {
   h6{
     font-family: 'Redtone-Bold'
   }
+
+  form{
+    &.create .form-label{
+      font-weight: bold;
+      padding: .5rem;
+    }
+
+    &.has-related fieldset{
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+  
+      formly-form{
+          width: 50%;
+  
+          formly-group{
+              width: 100%;
+              max-width: 400px;
+          }
+      }
+  
+      table{
+          width: 50%;
+          border: none;
+  
+          *{
+              border: none;
+              box-shadow: unset;
+          }
+  
+          tbody{
+              display: flex;
+              flex-direction: column;
+  
+              tr{
+                  margin: 5px 0;
+      
+                  &.active td{
+                      background: #00000033;
+                      color: #2470dc;
+                  }
+      
+                  td{
+                      cursor: pointer;
+                      color: var(--bs-btn-hover-bg);
+                      border-radius: 9px;
+                      width: 100%;
+                      display: block;
+                      max-width: 400px;
+                      text-transform: capitalize;
+                      border: 1px solid #00000033;
+      
+                      &:hover {
+                          background: #00000033;
+                      }
+                  }
+                  
+              }
+          } 
+      }
+    }
+
+    fieldset+div{
+      gap: 30px;
+    }
+  }
+
+  .page-actions{
+    gap: 30px;
+  }
+
+  .table.list{
+    thead{
+      border-bottom-width: 1px;
+    }
+
+    tbody{
+      tr{
+          &:hover {
+            background: #00000033;
+          }
+  
+          th, td{
+            vertical-align: middle;
+           }
+      }
+  
+      .register-acions>a{
+        margin-right: 10px;
+      }
+    }
+  } 
+  
+
 }
 
-form fieldset+div{
-  gap: 30px;
-}
 
 .feather {
   width: 16px;

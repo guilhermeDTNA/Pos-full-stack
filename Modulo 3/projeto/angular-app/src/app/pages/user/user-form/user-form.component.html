@@ -1,6 +1,6 @@
 <div class="container">
   <div class="py-3 text-center">
-    <h3>Cadastro de Usuários</h3>
+    <h3>Cadastro de Alunos</h3>
   </div>
   <div class="row">
     <div class="col-12 d-flex align-content-end justify-content-end pb-5">
@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class="row d-flex align-content-center justify-content-center">
-    <form [formGroup]="form" (ngSubmit)="onSubmit(fileInput.files)">
+    <form class="create" [formGroup]="form" (ngSubmit)="onSubmit(fileInput.files)">
 
       <form [formGroup]="form">
         <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
@@ -31,12 +31,12 @@
         </div>
       </form>
 
-      <div class="col-12 d-flex align-content-center justify-content-center pt-5">
+      <div class="page-actions col-12 d-flex align-content-center justify-content-center pt-5">
         <button class="btn btn-primary" type="submit">
           Salvar
         </button>
 
-        <button class="btn btn-danger" type="reset">
+        <button class="btn btn-danger" type="reset" (click)="cancel()">
           Cancelar
         </button>
       </div>

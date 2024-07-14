@@ -126,4 +126,8 @@ export class EvaluationFormComponent implements OnInit {
     this.model.course_id = e.target.closest('tr').id.replace("course-", "");
     console.log(this.model.course_id)
   }
+
+  cancel(){
+    window.location.href = document.referrer
+  }
 }

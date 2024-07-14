@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="row d-flex align-content-center justify-content-center">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form class="create has-related" [formGroup]="form" (ngSubmit)="onSubmit()">
       <fieldset>
 
         <formly-form
@@ -17,6 +17,7 @@
           [model]="model"
           [fields]="fields">
         </formly-form>
+        
         <table class="table">
           <thead>
             <tr>
@@ -31,12 +32,12 @@
         </table>
       </fieldset>
       
-      <div class="col-12 d-flex align-content-center justify-content-center pt-5">
+      <div class="page-actions col-12 d-flex align-content-center justify-content-center pt-5">
         <button class="btn btn-primary" type="submit"  >
           Salvar
         </button>
 
-        <button class="btn btn-danger" type="reset">
+        <button class="btn btn-danger" type="reset" (click)="cancel()">
           Cancelar
         </button>
       </div>

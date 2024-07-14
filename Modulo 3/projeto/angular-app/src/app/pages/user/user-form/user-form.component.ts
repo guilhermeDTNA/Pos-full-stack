@@ -56,8 +56,8 @@ export class UserFormComponent {
           key: 'email',
           type: 'input',
           props: {
-            label: 'Email',
-            placeholder: 'Email',
+            label: 'E-mail',
+            placeholder: 'E-mail',
             required: true,
           },
         },
@@ -65,8 +65,8 @@ export class UserFormComponent {
           key: 'gender',
           type: 'select',
           props: {
-            label: 'Genero',
-            placeholder: 'Genero',
+            label: 'Gênero',
+            placeholder: 'Gênero',
             required: true,
             options: GENDERS,
           },
@@ -149,5 +149,9 @@ export class UserFormComponent {
       }
     }
     await this.router.navigate(['/users']);
+  }
+  
+  cancel(){
+    window.location.href = document.referrer
   }
 }

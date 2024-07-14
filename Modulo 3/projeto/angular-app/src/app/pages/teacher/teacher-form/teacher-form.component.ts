@@ -109,4 +109,8 @@ export class TeacherFormComponent implements OnInit {
     e.target.closest('tr').classList.add("active");
     this.model.course_id = e.target.closest('tr').id.replace("course-", "");
   }
+
+  cancel(){
+    window.location.href = document.referrer
+  }
 }

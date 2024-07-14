@@ -9,7 +9,7 @@
     </div>
     <div class="row">
       <div class="col-md-12 mb-12">
-        <table class="table">
+        <table class="table list">
           <thead>
             <tr>
               <th scope="col">Código</th>
@@ -20,7 +20,7 @@
             <tr *ngFor="let course of courses">
               <th scope="row">{{course.id}}</th>
               <td>{{course.name}}</td>
-              <td>
+              <td class="register-acions">
                 <a class="btn btn-outline-primary" [href]="'/addCourse?id='+course.id">
                   <fa-icon [icon]="faPencil"></fa-icon>
                 </a>

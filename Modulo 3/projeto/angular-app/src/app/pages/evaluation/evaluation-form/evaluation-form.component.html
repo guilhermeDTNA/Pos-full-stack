@@ -9,19 +9,19 @@
     </div>
   </div>
   <div class="row d-flex align-content-center justify-content-center">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <formly-form
-        [form]="form"
-        [model]="model"
-        [fields]="fields">
-      </formly-form>
+    <form class="create has-related" [formGroup]="form" (ngSubmit)="onSubmit()">
 
-      <section>
-        <h4 class="text-center">Alunos disponíveis:</h4>
+      <fieldset>
+        <formly-form
+          [form]="form"
+          [model]="model"
+          [fields]="fields">
+        </formly-form>
+
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Nome</th>
+              <th class="btn-primary" scope="col">Alunos disponíveis:</th>
             </tr>
           </thead>
           <tbody>
@@ -31,11 +31,10 @@
           </tbody>
         </table>
 
-        <h4 class="text-center">Cursos disponíveis:</h4>
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Nome</th>
+              <th class="btn-primary" scope="col">Cursos disponíveis:</th>
             </tr>
           </thead>
           <tbody>
@@ -44,14 +43,14 @@
             </tr>
           </tbody>
         </table>
-      </section>
+      </fieldset>
 
-      <div class="col-12 d-flex align-content-center justify-content-center pt-5">
+      <div class="page-actions col-12 d-flex align-content-center justify-content-center pt-5">
         <button class="btn btn-primary" type="submit"  >
           Salvar
         </button>
 
-        <button class="btn btn-danger" type="reset">
+        <button class="btn btn-danger" type="reset" (click)="cancel()">
           Cancelar
         </button>
       </div>

@@ -8,24 +8,24 @@
       </div>
     </div>
     <div class="row d-flex align-content-center justify-content-center">
-        <form [formGroup]="loginForm" novalidate #formDir="ngForm" (ngSubmit)="onSubmit()" >
+        <form class="login" [formGroup]="loginForm" novalidate #formDir="ngForm" (ngSubmit)="onSubmit()" >
             <fieldset>
-                <label for="email">Digite seu e-mail:</label>
-                <input id="email" name="email" placeholder="E-mail" type="email" formControlName="email" />
+                <label for="email" class="form-label">Digite seu e-mail:</label>
+                <input id="email" name="email" placeholder="E-mail" type="email" formControlName="email" class="form-control ng-pristine ng-touched" />
                 <div *ngIf="email.invalid && formDir.submitted" class="validation-error">
                   <p>Campo obrigatório!</p>
                 </div>
             </fieldset>
 
             <fieldset>
-                <label for="password">Digite sua senha:</label>
-                <input id="password" name="password" type="password" placeholder="Senha" formControlName="password" />
+                <label class="form-label" for="password">Digite sua senha:</label>
+                <input class="form-control ng-pristine ng-touched" id="password" name="password" type="password" placeholder="Senha" formControlName="password" />
                 <div *ngIf="password.invalid && formDir.submitted" class="validation-error">
                   <p>Campo obrigatório!</p>
                 </div>
             </fieldset>
 
-            <button type="submit" name="login">
+            <button class="btn btn-primary" type="submit" name="login">
                 Entrar
             </button>
         </form>

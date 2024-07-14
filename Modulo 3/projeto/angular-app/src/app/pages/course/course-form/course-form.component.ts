@@ -85,4 +85,8 @@ export class CourseFormComponent {
     }
     await this.router.navigate(['/courses']);
   }
+
+  cancel(){
+    window.location.href = document.referrer
+  }
 }

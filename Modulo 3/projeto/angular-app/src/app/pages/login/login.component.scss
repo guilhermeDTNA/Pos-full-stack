@@ -1,6 +1,21 @@
-.validation-error p{
-    color: red;
-    margin-top: .4em;
-    padding-left: 10px;
-    border-left: 3px solid red;
+
+
+form.login{
+    max-width: 490px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .validation-error p{
+        color: #900;
+        margin-top: .4em;
+        padding-left: 10px;
+        border-left: 3px solid #900;
+    }
+
+    button[type="submit"]{
+        width: 100%;
+        margin: 0 auto;
+        max-width: 135px;
+    }
 }
