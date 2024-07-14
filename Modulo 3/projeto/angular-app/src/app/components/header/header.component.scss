@@ -1,0 +1,22 @@
+.navbar-toggler:focus{
+    box-shadow:  unset !important;
+}
+
+@media screen and (max-width: 767px) {
+    header{
+        justify-content: center;
+        height: 56px;
+
+        &>.navbar-toggler{
+            order: 0;
+            left: 0;
+            right: auto;
+            top: 0;
+            bottom: 0;
+        }
+
+        &>.navbar-nav{
+            display: none;
+        }
+    }
+}
