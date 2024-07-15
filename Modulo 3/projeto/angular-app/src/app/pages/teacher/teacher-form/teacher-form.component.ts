@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormlyFieldConfig } from '@ngx-formly/core';
-//import { SharedService } from 'src/app/shared/shared.service';
 import { TeacherService } from '../teacher.service';
 import { CourseService } from '../../course/course.service';
 
@@ -18,6 +17,7 @@ export class TeacherFormComponent implements OnInit {
   form = new FormGroup({});
   model: any = {};
   courses: any[] = [];
+  isComplete: Boolean = false;
 
   fields: FormlyFieldConfig[] = [
     {
@@ -61,7 +61,9 @@ export class TeacherFormComponent implements OnInit {
   }
 
   async onSubmit(): Promise<void> {
-    if (this.form.valid) {
+    this.isComplete = this.model.course_id != undefined && this.model.course_id != "";
+
+    if (this.form.valid && this.isComplete) {
       if (this.model?.id !== undefined && this.model?.id !== null) {
         this.teacher = await this.teacherService.put<any>({
           url: `http://localhost:3000/updateTeacher/${this.model?.id}`,
@@ -81,9 +83,11 @@ export class TeacherFormComponent implements OnInit {
           data: this.model
         })
       }
-
+      await this.router.navigate(['/teachers']);
+    } else{
+      alert("Preencha os campos obrigatórios");
     }
-    await this.router.navigate(['/teachers']);
+    
   }
 
 
@@ -107,7 +111,10 @@ export class TeacherFormComponent implements OnInit {
     });
 
     e.target.closest('tr').classList.add("active");
-    this.model.course_id = e.target.closest('tr').id.replace("course-", "");
+    const id = e.target.closest('tr').id.replace("course-", "");
+
+    if(id && id != "")  
+      this.model.course_id = id;
   }
 
   cancel(){

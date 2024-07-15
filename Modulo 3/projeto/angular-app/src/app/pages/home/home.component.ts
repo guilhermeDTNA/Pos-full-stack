@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -7,9 +8,9 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private router: Router){}
 
   ngOnInit(): void {
-    this.authService.getLoginStatus() ? window.location.href = '/users' : window.location.href = '/login'  
+    this.authService.getLoginStatus() ? this.router.navigate(['/users']) : this.router.navigate(['/login']);  
   }
 }

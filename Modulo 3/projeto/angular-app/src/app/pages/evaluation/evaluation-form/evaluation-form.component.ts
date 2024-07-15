@@ -22,6 +22,7 @@ export class EvaluationFormComponent implements OnInit {
   model: any = {};
   courses: any[] = [];
   users: any[] = [];
+  isComplete: Boolean = false;
   //Cria os campos e atribui os valores para serem gerados pelo angular
 
   fields: FormlyFieldConfig[] = [
@@ -69,7 +70,10 @@ export class EvaluationFormComponent implements OnInit {
   }
 
   async onSubmit(): Promise<void> {
-    if (this.form.valid) {
+    this.isComplete = this.model.user_id && this.model.course_id
+    console.log(this.isComplete);
+
+    if (this.form.valid && this.isComplete) {
       if (this.model?.id !== undefined && this.model?.id !== null) {
         this.evaluation = await this.evaluationService.put<any>({
           url: `http://localhost:3000/updateEvaluation/${this.model?.id}`,
@@ -89,9 +93,11 @@ export class EvaluationFormComponent implements OnInit {
           data: this.model
         })
       }
-
+      await this.router.navigate(['/evaluations']);
+    } else{
+      alert("Preencha os campos obrigatórios");
     }
-    await this.router.navigate(['/evaluations']);
+    
   }
 
   async ngOnInit(): Promise<void> {
@@ -118,13 +124,30 @@ export class EvaluationFormComponent implements OnInit {
   }
 
   userSelect(e: any): void{
-    this.model.user_id = e.target.closest('tr').id.replace("user-", "");
-    console.log(this.model.user_id)
+    const table = e.target.closest('table');
+    table.querySelectorAll('tbody tr').forEach((item: HTMLElement) => {
+      item.classList.remove("active");
+    });
+
+    e.target.closest('tr').classList.add("active");
+    const id = e.target.closest('tr').id.replace("user-", "");
+    
+    if(id && id != "")
+      this.model.user_id = id;
+
   }
 
   courseSelect(e: any): void{
-    this.model.course_id = e.target.closest('tr').id.replace("course-", "");
-    console.log(this.model.course_id)
+    const table = e.target.closest('table');
+    table.querySelectorAll('tbody tr').forEach((item: HTMLElement) => {
+      item.classList.remove("active");
+    });
+
+    e.target.closest('tr').classList.add("active");
+    const id = e.target.closest('tr').id.replace("course-", "");
+    
+    if(id && id != "")
+      this.model.course_id = id;
   }
 
   cancel(){
