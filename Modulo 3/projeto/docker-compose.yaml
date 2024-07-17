@@ -1,7 +1,7 @@
 version: '3.3'
 
 services:
-  # Serviço Node.js com Sequelize
+  # Serviço NodeJS
   node-app:
     image: node:14
     container_name: node-app
@@ -24,7 +24,7 @@ services:
       - postgres
     command: sh -c "npm install && node index.js"
 
-  # Serviço PostgreSQL para Sequelize
+  # Serviço PostgreSQL com Sequelize
   postgres:
     image: postgres:13
     container_name: postgres
