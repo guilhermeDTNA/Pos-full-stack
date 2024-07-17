@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { SharedService } from 'src/app/shared/shared.service';
 import { EvaluationService } from '../evaluation.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-evaluation-list',
@@ -18,7 +19,13 @@ export class EvaluationListComponent implements OnInit{
 
   evaluations: any[] = [];
 
-  constructor(private evaluationService: EvaluationService, private sharedService: SharedService) { }
+  constructor(
+    private evaluationService: EvaluationService, 
+    private sharedService: SharedService,
+    private authService: AuthService
+  ) { }
+
+  public isLoggedIn = this.authService.getLoginStatus();
 
   async ngOnInit(): Promise<void> {
     await this.listEvaluations();

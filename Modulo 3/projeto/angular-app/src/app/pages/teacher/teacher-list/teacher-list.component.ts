@@ -3,19 +3,26 @@ import { Component, OnInit } from '@angular/core';
 import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { SharedService } from 'src/app/shared/shared.service';
 import { TeacherService } from '../teacher.service';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-teacher-list',
   templateUrl: './teacher-list.component.html',
   styleUrls: ['./teacher-list.component.scss']
 })
 export class TeacherListComponent implements OnInit {
+  constructor(
+    private teacherService: TeacherService, 
+    private sharedService: SharedService,
+    private authService: AuthService
+  ) { }
+  
   faPencil = faPencil;
   faTrash = faTrash;
 
   courseLabel: Array<{ value: string, label: string }> = [];
   teachers: any[] = [];
 
-  constructor(private teacherService: TeacherService, private sharedService: SharedService) { }
+  public isLoggedIn = this.authService.getLoginStatus();
 
   async ngOnInit(): Promise<void> {
     await this.listTeachers();

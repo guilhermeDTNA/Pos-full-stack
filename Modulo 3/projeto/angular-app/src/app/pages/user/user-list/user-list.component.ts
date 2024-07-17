@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
 import {UserService} from "../user.service";
 import {GENDERS} from "../user-form/user-form.component";
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-user-list',
@@ -9,16 +10,16 @@ import {GENDERS} from "../user-form/user-form.component";
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
+  constructor(
+    private userService: UserService,
+    private authService: AuthService
+  ) {}
+
+  public isLoggedIn = this.authService.getLoginStatus();
   faPencil = faPencil;
   faTrash = faTrash;
 
   users: any[] = [];
-
-  constructor(
-    private userService: UserService
-  ) {
-
-  }
 
   async ngOnInit(): Promise<void> {
     await this.listUsers();

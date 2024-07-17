@@ -20,7 +20,7 @@
             <tr *ngFor="let course of courses">
               <th scope="row">{{course.id}}</th>
               <td>{{course.name}}</td>
-              <td class="register-acions">
+              <td class="register-acions" *ngIf="isLoggedIn">
                 <a class="btn btn-outline-primary" [href]="'/addCourse?id='+course.id">
                   <fa-icon [icon]="faPencil"></fa-icon>
                 </a>

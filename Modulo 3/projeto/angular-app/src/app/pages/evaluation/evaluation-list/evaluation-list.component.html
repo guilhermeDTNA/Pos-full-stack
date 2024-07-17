@@ -25,7 +25,7 @@
           <td>{{evaluation.user_id}}</td>
           <td>{{evaluation.course_id}}</td>
           <td>{{evaluation.concept}}</td>
-          <td class="register-acions">
+          <td *ngIf="isLoggedIn" class="register-acions">
             <a class="btn btn-outline-primary" [href]="'/addEvaluation?id='+evaluation.id">
               <fa-icon [icon]="faPencil"></fa-icon>
             </a>

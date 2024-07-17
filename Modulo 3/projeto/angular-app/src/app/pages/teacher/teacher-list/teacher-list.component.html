@@ -23,7 +23,7 @@
           <th scope="row">{{teacher.id}}</th>
           <td>{{teacher.name}}</td>
           <td>{{teacher.course_id}}</td>
-          <td class="register-acions">
+          <td *ngIf="isLoggedIn" class="register-acions">
             <a class="btn btn-outline-primary" [href]="'/addTeacher?id='+teacher.id">
               <fa-icon [icon]="faPencil"></fa-icon>
             </a>

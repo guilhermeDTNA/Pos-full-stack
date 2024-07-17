@@ -5,6 +5,7 @@ import { CourseService } from '../course.service';
 
 // formatação
 import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-course-list',
@@ -12,6 +13,12 @@ import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./course-list.component.scss']
 })
 export class CourseListComponent implements OnInit { // implements OnInit e import oninit
+   // adicionar construtor ANTES do onInit
+   constructor(
+    private courseService: CourseService,
+    private authService: AuthService
+  ) { }
+
   faPencil = faPencil;
   faTrash = faTrash;
 
@@ -19,10 +26,7 @@ export class CourseListComponent implements OnInit { // implements OnInit e impo
   courseLabel: Array<{ value: String, label: String }> = [];
   courses: any[] = [];
 
-  // adicionar construtor ANTES do onInit
-  constructor(
-    private courseService: CourseService,
-  ) { }
+  public isLoggedIn = this.authService.getLoginStatus();
 
   async ngOnInit(): Promise<void> {
     await this.listCourses();
